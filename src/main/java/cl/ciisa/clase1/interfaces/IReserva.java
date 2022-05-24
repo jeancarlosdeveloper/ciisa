@@ -2,15 +2,16 @@ package cl.ciisa.clase1.interfaces;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import cl.ciisa.clase1.entitys.Reserva;
+import cl.ciisa.clase1.DTO.ReservaDTO;
 
+@RequestMapping("/reservas")
 public interface IReserva {
 	
 	@GetMapping("/")
-	public ResponseEntity<List<Reserva>> findAll();
+	public List<ReservaDTO> findAll();
 //	
 //	@PutMapping("/{id}")
 //	public ResponseEntity<T> findBy(@RequestBody AlertasRqBusAPDTO alertas);

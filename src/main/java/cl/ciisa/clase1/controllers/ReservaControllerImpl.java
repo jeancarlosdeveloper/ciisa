@@ -3,10 +3,9 @@ package cl.ciisa.clase1.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import cl.ciisa.clase1.entitys.Reserva;
+import cl.ciisa.clase1.DTO.ReservaDTO;
 import cl.ciisa.clase1.interfaces.IReserva;
 import cl.ciisa.clase1.services.ReservaService;
 
@@ -17,8 +16,8 @@ public class ReservaControllerImpl implements IReserva {
 	private ReservaService reservaService;
 	
 	@Override
-	public ResponseEntity<List<Reserva>> findAll() {
-		return ResponseEntity.ok(reservaService.findAll());
+	public List<ReservaDTO> findAll() {
+		return reservaService.findAll();
 	}
 
 }
