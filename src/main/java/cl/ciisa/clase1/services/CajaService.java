@@ -19,5 +19,9 @@ public class CajaService {
 		CajaRegistroPagoDTO convertirADTO = ICajaMapper.INSTANCE.cajaToCajaRegistroPagoDTO(cajaRepository.save(converirAEntidad));
 		return convertirADTO;
 	}
+	
+	public void obtenerConsumosMesa() {
+		
+	}
 
 }

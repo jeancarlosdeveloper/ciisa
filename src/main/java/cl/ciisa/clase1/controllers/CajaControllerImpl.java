@@ -8,18 +8,43 @@ import cl.ciisa.clase1.DTO.CajaRegistroPagoDTO;
 import cl.ciisa.clase1.interfaces.ICaja;
 import cl.ciisa.clase1.services.CajaService;
 
+/**
+ * @author Jean Carlos
+ * @since 07-06-2022
+ */
+
 @RestController
 @CrossOrigin(origins = "*")
 public class CajaControllerImpl implements ICaja {
 
 	@Autowired
 	CajaService cajaService;
-	
+
+	/**
+	 * Feat: Metodo: registroPago(), realiza registro de pago en caja para los clientes.
+	 * 
+	 * @param CajaRegistroPagoDTO
+	 * @return CajaRegistroPagoDTO
+	 * 
+	 **/
+
 	@Override
 	public CajaRegistroPagoDTO registroPago(CajaRegistroPagoDTO solicitudRegistro) {
 		return cajaService.registroPago(solicitudRegistro);
 	}
 
 	
+	/**
+	 * Feat: Metodo obtenerConsumosMesa(), obtiene todos los consumos de una mesa en particular.
+	 * 
+	 * @param CajaRegistroPagoDTO
+	 * @return CajaRegistroPagoDTO
+	 * 
+	 **/
+	
+	@Override
+	public void obtenerConsumosMesa(Integer idMesa) {
+		cajaService.obtenerConsumosMesa();
+	}
 
 }
