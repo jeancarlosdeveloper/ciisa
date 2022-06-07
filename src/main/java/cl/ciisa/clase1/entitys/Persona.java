@@ -7,36 +7,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="personas")
-public class PersonaEntity {
+public class Persona {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
 	
-	private String rut;
+	@Length(min=10, max=10)
+	String rut;
 	
+	@NotNull
 	@Column(name="primer_nombre")
-	private String primerNombre;
+	String primerNombre;
 
 	@Column(name="segundo_nombre")
-	private String segundoNombre;
+	String segundoNombre;
 	
+	@NotNull
 	@Column(name="apellido_paterno")
-	private String apellidoPaterno;
+	String apellidoPaterno;
 	
 	@Column(name="apellido_materno")
-	private String apellidoMaterno;
+	String apellidoMaterno;
 	
 	@Column(name="fecha_registro")
-	private Date fechaRegistro;
+	Date fechaRegistro;
 	
 	@Column(name="fecha_eliminado")
-	private Date fechaEliminado;
+	Date fechaEliminado;
 	
 	
 }
