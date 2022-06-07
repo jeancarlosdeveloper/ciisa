@@ -10,8 +10,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 @Entity
 @Table(name="caja")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Caja {
 	
 	@Id
@@ -29,5 +37,9 @@ public class Caja {
 	@ManyToOne
 	@JoinColumn(name="id_usuario_cajera")
 	Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="id_reserva_cliente")
+	ReservaCliente reservaCliente;
 
 }

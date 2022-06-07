@@ -4,17 +4,19 @@ import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class CajaRegistroPagoDTO {
-	
-	private Date fechaCompra;
-	private Integer monto;
-	private Integer idTipoPago;
-	private Integer idCajera;
-	private Integer idReservaCliente;
-	
+
+	Date fechaCompra;
+	Integer monto;
+	Integer idTipoPago;
+	Integer idCajera;
+	Integer idReservaCliente;
+
 }

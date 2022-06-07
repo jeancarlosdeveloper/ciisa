@@ -10,14 +10,14 @@ import cl.ciisa.clase1.repository.ICajaRepository;
 
 @Service
 public class CajaService {
-	
+
 	@Autowired
 	ICajaRepository cajaRepository;
-	
+
 	public CajaRegistroPagoDTO registroPago(CajaRegistroPagoDTO solicitudRegistro) {
-		Caja converirAEntidad= ICajaMapper.INSTANCE.cajaRegistroPagoDTOToCaja(solicitudRegistro);
-		CajaRegistroPagoDTO convertirADTO=   ICajaMapper.INSTANCE.cajaToCajaRegistroPagoDTO(cajaRepository.save(converirAEntidad));
+		Caja converirAEntidad = ICajaMapper.INSTANCE.cajaRegistroPagoDTOToCaja(solicitudRegistro);
+		CajaRegistroPagoDTO convertirADTO = ICajaMapper.INSTANCE.cajaToCajaRegistroPagoDTO(cajaRepository.save(converirAEntidad));
 		return convertirADTO;
 	}
-	
+
 }
