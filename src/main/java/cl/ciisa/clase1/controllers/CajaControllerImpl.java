@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
-import cl.ciisa.clase1.DTO.CajaRegistroPagoDTO;
+import cl.ciisa.clase1.DTO.FrontCajaRegistroPagoDTO;
 import cl.ciisa.clase1.interfaces.ICaja;
 import cl.ciisa.clase1.services.CajaService;
 
@@ -23,21 +23,21 @@ public class CajaControllerImpl implements ICaja {
 	/**
 	 * Feat: Metodo: registroPago(), realiza registro de pago en caja para los clientes.
 	 * 
-	 * @param CajaRegistroPagoDTO
+	 * @param FrontCajaRegistroPagoDTO
 	 * @return CajaRegistroPagoDTO
 	 * 
 	 **/
 
 	@Override
-	public CajaRegistroPagoDTO registroPago(CajaRegistroPagoDTO solicitudRegistro) {
-		return cajaService.registroPago(solicitudRegistro);
+	public FrontCajaRegistroPagoDTO registroPago(FrontCajaRegistroPagoDTO solicitudRegistro) {
+		return cajaService.registrarPago(solicitudRegistro);
 	}
 
 	
 	/**
 	 * Feat: Metodo obtenerConsumosMesa(), obtiene todos los consumos de una mesa en particular.
 	 * 
-	 * @param CajaRegistroPagoDTO
+	 * @param FrontCajaRegistroPagoDTO
 	 * @return CajaRegistroPagoDTO
 	 * 
 	 **/

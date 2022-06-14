@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name="pedidos")
 public class Pedido {
@@ -33,5 +36,6 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name="id_cocina")
 	Cocina cocina;
+	
 	
 }

@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cl.ciisa.clase1.DTO.CajaRegistroPagoDTO;
+import cl.ciisa.clase1.DTO.FrontCajaRegistroPagoDTO;
 
 @RequestMapping("/caja")
 public interface ICaja {
 	
 	@PostMapping("/pago")
-	public CajaRegistroPagoDTO registroPago(@RequestBody CajaRegistroPagoDTO solicitudRegistro);
+	public FrontCajaRegistroPagoDTO registroPago(@RequestBody FrontCajaRegistroPagoDTO solicitudRegistro);
 	
 	@GetMapping("/obtener-consumos/{idmesa}")
 	public void obtenerConsumosMesa(@PathVariable("idmesa") Integer idMesa);

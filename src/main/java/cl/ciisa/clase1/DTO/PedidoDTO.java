@@ -1,6 +1,7 @@
 package cl.ciisa.clase1.DTO;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +12,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CajaRegistroPagoDTO {
-
-	Date fechaCompra;
-	Integer monto;
-	Integer idTipoPago;
-	Integer idCajera;
-	Integer idReservaCliente;
-
+public class PedidoDTO {
+	
+	Date fechaPedido;
+	Integer idCamarero;
+	Integer idCocina;
+	List<PedidoIngredienteDTO>listaIngredientes;
+	
 }

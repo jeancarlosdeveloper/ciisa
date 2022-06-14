@@ -1,16 +1,14 @@
 package cl.ciisa.clase1.interfaces;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/cliente")
-public interface ICliente {
+@RequestMapping("/reserva")
+public interface IReserva {
+	
+	@PostMapping("/nueva")
+	public void registrarNuevaReserva();
+	
 
-	@PostMapping("/nuevo")
-	public List<String> registrarNuevoCliente();
-	
-	
-	
+
 }
