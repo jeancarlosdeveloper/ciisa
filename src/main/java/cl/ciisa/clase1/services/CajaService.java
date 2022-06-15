@@ -36,12 +36,7 @@ public class CajaService {
 		List<ResponsePedidoDTO>pedidosGuardados= this.pedidoService.registrarPedidos(pedidosARegistrar);
 		
 		System.out.println("Realizado satisfactoriamente");
-		
-		
-		
 
-		
-		
 		return null;
 	}
 

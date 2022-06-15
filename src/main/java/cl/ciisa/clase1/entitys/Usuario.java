@@ -19,9 +19,9 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	
-	Boolean activo;
+	Boolean activo = true;
 	
-	Boolean deleted;
+	Boolean deleted = false;
 	
 	@OneToOne
 	@JoinColumn(name="id_persona")
