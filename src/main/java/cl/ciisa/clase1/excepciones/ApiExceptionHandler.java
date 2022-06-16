@@ -19,6 +19,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -84,7 +85,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@ExceptionHandler({ 
 		NotFoundException.class, 
-		NoSuchElementException.class
+		NoSuchElementException.class,
+		javax.persistence.EntityNotFoundException.class
 	})
 	@ResponseBody
 	public ResponseEntity<Object> notFoundRequest(HttpServletRequest request, Exception exception) {
@@ -138,6 +140,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		ConflictException.class, 
 		DuplicateKeyException.class,
 		DataIntegrityViolationException.class,
+		JpaObjectRetrievalFailureException.class
 	})
 	@ResponseBody
 	public ResponseEntity<Object> conflictRequest(HttpServletRequest request, Exception exception) {
@@ -149,6 +152,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 			String mensajeFormateado=exception.getMessage().split("constraint")[1].substring(2).split("]")[0].replaceFirst("\" *$", "");
 			mensaje = "Inconvenientes para realizar operación en base de datos. El atributo ["+mensajeFormateado +"] ya se encuentra en los registros, intente ingresar otro por favor.";
 		}
+		
+		
+		if(exception instanceof JpaObjectRetrievalFailureException) {
+			mensaje= exception.getMessage();
+		}
+		
 
 		response = ErrorMessage.builder()
 						.status(HttpStatus.CONFLICT.toString())

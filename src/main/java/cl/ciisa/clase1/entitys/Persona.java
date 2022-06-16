@@ -26,17 +26,16 @@ public class Persona {
 	Long id;
 	
 	@Length(min=10, max=10)
+	@Column(unique = true)
 	String rut;
 	
-	@NotNull
-	@Column(name="primer_nombre")
+	@Column(name="primer_nombre", nullable=false)
 	String primerNombre;
 
 	@Column(name="segundo_nombre")
 	String segundoNombre;
 	
-	@NotNull
-	@Column(name="apellido_paterno")
+	@Column(name="apellido_paterno", nullable=false)
 	String apellidoPaterno;
 	
 	@Column(name="apellido_materno")

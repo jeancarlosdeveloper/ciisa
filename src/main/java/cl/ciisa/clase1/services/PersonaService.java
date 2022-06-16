@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cl.ciisa.clase1.entitys.Persona;
 import cl.ciisa.clase1.repository.IPersonaRepository;
@@ -14,6 +15,7 @@ public class PersonaService {
 	@Autowired
 	IPersonaRepository personaRepository;
 
+	@Transactional
 	public Persona nuevaPersona(Persona registrarPersona) {
 		return personaRepository.save(registrarPersona);
 	}

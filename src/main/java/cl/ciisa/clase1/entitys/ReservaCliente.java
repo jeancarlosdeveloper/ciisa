@@ -2,6 +2,7 @@ package cl.ciisa.clase1.entitys;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 
@@ -22,15 +25,17 @@ public class ReservaCliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	
-	@Column(name="fecha_reserva")
+	@Column(name="fecha_reserva", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	Date fechaReserva;
 	
+	
 	@ManyToOne
-	@JoinColumn(name="id_persona")
+	@JoinColumn(name="id_persona", nullable = false)
 	Persona persona;
 
-	@ManyToOne
-	@JoinColumn(name="id_mesa")
+	@ManyToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name="id_mesa", nullable = false)
 	Mesa mesa;
 	
 }
