@@ -3,13 +3,14 @@ package cl.ciisa.clase1.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import cl.ciisa.clase1.DTO.ClienteDTO;
 import cl.ciisa.clase1.DTO.ReservacionDTO;
 import cl.ciisa.clase1.entitys.ReservaCliente;
 
-@Mapper
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface IReservacionMapper {
 
 	IReservacionMapper INSTANCE = Mappers.getMapper(IReservacionMapper.class);

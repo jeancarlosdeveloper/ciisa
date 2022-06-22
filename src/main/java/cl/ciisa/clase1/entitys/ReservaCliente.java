@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,11 +31,11 @@ public class ReservaCliente {
 	Date fechaReserva;
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="id_persona", nullable = false)
 	Persona persona;
 
-	@ManyToOne(cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.DETACH)
 	@JoinColumn(name="id_mesa", nullable = false)
 	Mesa mesa;
 	

@@ -21,6 +21,7 @@ public class TipoUsuario {
 	@Column(unique=true)
 	String tipoUsuario;
 	
-	Boolean deleted;
+	
+	Boolean deleted=false;
 	
 }

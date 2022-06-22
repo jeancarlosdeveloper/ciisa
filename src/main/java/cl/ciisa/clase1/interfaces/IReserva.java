@@ -1,7 +1,5 @@
 package cl.ciisa.clase1.interfaces;
 
-import java.util.Date;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,9 +19,9 @@ public interface IReserva {
 	public String modificarReserva(@RequestBody ReservacionDTO solicitudModificarReservacion);
 	
 	@GetMapping("/busqueda/avanzada")
-	public void buscarReserva(
+	public String buscarReserva(
 			@RequestHeader(value="rut",required=false) String rut,
-			@RequestHeader(value="fechaHoraReserva", required=false) Date fechaHoraReserva,
+			@RequestHeader(value="fechaHoraReserva", required=false) String fechaHoraReserva,
 			@RequestHeader(value="idMesa",required=false) String idMesa);
 	
 }

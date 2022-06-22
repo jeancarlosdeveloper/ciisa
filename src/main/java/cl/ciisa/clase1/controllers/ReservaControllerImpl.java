@@ -1,12 +1,10 @@
 package cl.ciisa.clase1.controllers;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -71,9 +69,10 @@ public class ReservaControllerImpl implements IReserva{
 	}
 
 	@Override
-	public void buscarReserva(String rut, Date fechaHoraReserva, String idMesa) {
-		// TODO Auto-generated method stub
-		
+	public String buscarReserva(String rut, String fechaHoraReserva, String idMesa) {
+		Map<String, Object>respuesta= new HashMap<>();
+		respuesta.put("Reserva", reservaService.buscarReserva(rut, fechaHoraReserva, idMesa));
+		return new GsonBuilder().setPrettyPrinting().create().toJson(respuesta);
 	}
 
 }
