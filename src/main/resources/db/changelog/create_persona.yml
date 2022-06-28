@@ -1,0 +1,27 @@
+databaseChangeLog:
+- changeSet:
+    id: PERSONA7
+    author: jean.carlos
+    changes:
+    - createTable:
+        tableName: personas
+        columns:
+        - column:
+            name: id
+            type: Bigint
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: primer_nombre
+            type: java.sql.Types.VARCHAR(40)
+        - column:
+            name: segundo_nombre
+            type: java.sql.Types.VARCHAR(40)
+        - column:
+            name: apellido_paterno
+            type: java.sql.Types.VARCHAR(40)
+        - column:
+            name: apellido_materno
+            type: java.sql.Types.VARCHAR(40)

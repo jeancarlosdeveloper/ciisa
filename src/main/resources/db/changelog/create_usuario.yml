@@ -1,0 +1,45 @@
+databaseChangeLog:
+- changeSet:
+    id: USUARIO7
+    author: jean.carlos
+    changes:
+    - createTable:
+        tableName: usuarios
+        columns:
+        - column:
+            name: id
+            type: Bigint
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: usuario
+            type: java.sql.Types.VARCHAR(40)
+            constraints:
+              unique: true
+              nullable: false
+        - column:
+            name: deleted
+            type: Boolean
+        - column:
+            name: id_persona
+            type: Bigint
+            constraints:
+              nullable: false
+        - column:
+            name: id_tipo_usuario
+            type: Bigint
+            constraints:
+              nullable: false
+-changeSet:
+  id: usuario_persona_fk
+  author: jean.carlos
+  changes:
+  - addforeingKeyConstraint: #Agregando llave foranea
+      baseColumnNames: id_persona #Propiedad de esta tabla con la referencia de clave foranea
+      baseTableName: usuarios
+      constraintName: fk_usuario_persona
+      referencedColumnNames: id
+      referencedTableName: personas
+  

@@ -233,7 +233,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 				msg.add(mensaje);
 				map.put(property, msg);
 			} else {
-				map.put(property, new ArrayList(Arrays.asList(mensaje)));
+				map.put(property, new ArrayList<String>(Arrays.asList(mensaje)));
 			}
 		});
 		

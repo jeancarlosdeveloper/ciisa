@@ -1,0 +1,7 @@
+databaseChangeLog:
+- include:
+    file: db/changelog/create_persona.yml
+- include:
+    file: db/changelog/create_tipo_usuario.yml
+- include:
+    file: db/changelog/create_usuario.yml

@@ -1,5 +1,6 @@
 package cl.ciisa.clase1.entitys;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_usuario")
 	Long id;
 	
 	Boolean activo = true;

@@ -1,0 +1,27 @@
+databaseChangeLog:
+- changeSet:
+    id: TIPOUSUARIO7
+    author: jean.carlos
+    changes:
+    - createTable:
+        tableName: tipos_usuarios
+        columns:
+        - column:
+            name: id
+            type: Bigint
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: tipo_usuario
+            type: java.sql.Types.VARCHAR(40)
+            constraints:
+              unique: true
+              nullable: false
+        - column:
+            name: activo
+            type: Boolean
+        - column:
+            name: deleted
+            type: Boolean
